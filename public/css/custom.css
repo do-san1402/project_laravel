@@ -1,0 +1,12 @@
+.bn-customer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.bn-customer div {
+    padding-top: 40px;
+}
+.bn-customer div a {
+    font-size: 18px;
+}
