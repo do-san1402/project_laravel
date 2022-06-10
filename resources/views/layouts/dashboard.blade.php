@@ -752,14 +752,13 @@
             var cart_product_name = $('.cart_product_name_'+id).val();
             var cart_product_image = $('.cart_product_image_'+id).val();
             var cart_product_price = $('.cart_product_price_'+id).val();
-            var cart_product_quantity = $('.cart_product_quantity_'+id).val(); // Số lượng hàng tồn trong kho
+            var cart_product_quantity = $('.cart_product_quantity_'+id).val();
             var cart_product_qty = $('.cart_product_qty_'+id).val();
             var _token = $('input[name="_token"]').val();
 
-            if(cart_product_qty == '') {
-                cart_product_qty = 1;
-            }
-           if(parseInt(cart_product_qty) > parseInt(cart_product_quantity)) {
+
+
+           if(parseInt(cart_product_qty) < parseInt(cart_product_quantity)) {
                 alert('Vui lòng đặt số lượng ít hơn' + cart_product_quantity);
            }else {
 
@@ -777,27 +776,27 @@
                     },
                     
                     success:function(){
-                        swal({
-                            title: 'Đã thêm sản phẩm vào giỏ hàng',
-                            text: "Bạn có thể mua hàng tiếp hoặc tới giỏ hàng để tiến hành thanh toán",
-                            showCancelButton: true,
-                            type: "success",
-                            cancelButtonText: "Xem tiếp",
-                            confirmButtonClass: "btn-success",
-                            confirmButtonText: "Đi đến giỏ hàng",
-                            closeOnConfirm: false,
-                            color: '#716add',
-                            background: '#fff',
-                        },
                         
-                        function() {
-                            window.location.href = "{{url('/show-cart')}}";
-                        });
 
                     },
 
                 });
+                swal({
+                    title: 'Đã thêm sản phẩm vào giỏ hàng',
+                    text: "Bạn có thể mua hàng tiếp hoặc tới giỏ hàng để tiến hành thanh toán",
+                    showCancelButton: true,
+                    type: "success",
+                    cancelButtonText: "Xem tiếp",
+                    confirmButtonClass: "btn-success",
+                    confirmButtonText: "Đi đến giỏ hàng",
+                    closeOnConfirm: false,
+                    color: '#716add',
+                    background: '#fff',
+                },
                 
+                function() {
+                    window.location.href = "{{url('/show-cart')}}";
+                });
            }
             
         });

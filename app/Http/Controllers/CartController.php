@@ -120,8 +120,12 @@ class CartController extends Controller
 
     function add_cart_ajax(Request $request) {
         $data = $request ->all();
+ 
        $session_id = substr(md5(microtime()), rand(0, 26), 5);
        $cart = $request -> session()->get('cart');
+       
+
+      
        if($cart==true){
            $is_avaiable = 0;
            foreach($cart as $key => $val){
@@ -154,9 +158,14 @@ class CartController extends Controller
            $request->session()->put('cart',$cart);
        }
       
+       Session::save();
+
+
+    
     }
     function check_coupon(Request $request) {
         $data= $request ->all();
+        
         $validation = $request ->validate([
             'coupon' => 'required',
         ],

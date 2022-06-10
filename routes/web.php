@@ -108,10 +108,11 @@ Route::middleware(['role', 'roles.author']) ->group(function() {
     Route::post('import-csv-product', [ProductController::class, 'import_csv_product']) ;
     Route::post('export-csv-product', [ProductController::class, 'export_csv_product']) ;
 
-    Route::post('import-csv-brand', [BrandProductController::class, 'import_csv_brand']);
-    Route::post('export-csv-brand', [BrandProductController::class, 'export_csv_brand']);
+    Route::post('import-csv-brand', [BrandProductController::class, 'import_csv_brand']) ;
+    Route::post('export-csv-brand', [BrandProductController::class, 'export_csv_brand']) ;
     // Mã giảm giá
-    
+    Route::post('/check-coupon', [CartController::class, 'check_coupon']); 
+    Route::get('/delete-coupon', [CartController::class, 'delete_coupon']); 
     Route::post('/insert-coupon-code', [CouponController::class, 'insert_coupon_code']); 
     Route::get('/insert-coupon', [CouponController::class, 'insert_coupon']); 
     Route::get('/list-coupon', [CouponController::class, 'list_coupon']); 
@@ -123,8 +124,7 @@ Route::middleware(['role', 'roles.author']) ->group(function() {
     Route::get('/select-feeship', [DeliveryController::class, 'select_feeship']); 
     Route::get('/update-delivery', [DeliveryController::class, 'update_delivery']); 
 });
-Route::post('/check-coupon', [CartController::class, 'check_coupon']); 
-Route::get('/delete-coupon', [CartController::class, 'delete_coupon']); 
+
 Route::get('/dashboard', [AdminController::class, 'show_dashboard']);
 Route::post('/admin-dashboard', [AdminController::class, 'dashboard']);
 Route::get('/logout-admin', [AdminController::class, 'logout']) ;

@@ -112,13 +112,15 @@
                     <div class="nk-product-price"><span class='h4 text-capitalize font-weight-normal text-danger'>Giá KM </span>: {{number_format($products ->product_price,  0, '.', '.')}} đ</div>
                     <div class="nk-gap-1"></div>
                     <div class="input-group">
-                        <input type="number" class="form-control cart_product_qty_{{$products->id}}"  min="1"  name = 'qty' placeholder="1"> 
+                        <input type="number" class="form-control" value="1" min="1" max="20" name = 'qty'>
 
                         <input type="hidden" class="cart_product_id_{{$products->id}}" value="{{$products->id}}" name="">
                         <input type="hidden" class="cart_product_name_{{$products->id}}" value="{{$products->product_name}}" name="">
                         <input type="hidden" class="cart_product_image_{{$products->id}}" value="{{$products->product_image}}" name="">
                         <input type="hidden" class="cart_product_price_{{$products->id}}" value="{{$products->product_price}}" name="">
                         <input type="hidden" class="cart_product_quantity_{{$products->id}}" value="{{$products->product_quantity}}" name="">
+                        <input type="hidden" class="cart_product_qty_{{$products->id}}"  min="1" max="20" value="1">
+                        
                         <button type="button" class="add-detail-cart nk-btn nk-btn-rounded nk-btn-color-main-1" data-product_id_detail="{{$products->id}}">Đặt hàng</button>
                     </div>
                 </form>
